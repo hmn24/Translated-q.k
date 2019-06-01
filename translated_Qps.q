@@ -1,8 +1,8 @@
-.Q.qe:{$[count x; 99h = type x; 1]}
+.Q.qe: {$[count x; 99h = type x; 1]}
 
 .Q.dt: {.Q.cn[y] @ where .Q.pv in x}
 
-.Q.qb: {(2>count x)|type[x] & not 11= type x}
+.Q.qb: {(2>count x) | type[x] & not 11= type x}
 
 .Q.qa: {$[.Q.qb x;0; .Q.IN[first x; .Q.a0];1; (|/) .Q.qa each 1_x]}
 
