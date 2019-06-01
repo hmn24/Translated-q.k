@@ -1,3 +1,4 @@
+// Translated function from q.k for purposes of reference 
 .Q.qe: {$[count x; 99h = type x; 1]}
 
 .Q.dt: {.Q.cn[y] @ where .Q.pv in x}
@@ -10,6 +11,7 @@
 
 .Q.IN: {$[99h< type x; x in y; 0]}
 
+// .Q.ua, along with .Q.x0, .Q.x1, .Q.x2, is mainly used for Q to deal with composite functional trees, with aggregation functions split into map-reduce components
 .Q.ua: {((`$string til count u)!u; .Q.x2[; u: distinct raze .Q.x1 each x] each x: .Q.x0 each x)}
 
 .Q.x0: {$[.Q.qb x; x; .Q.IN[first x; .Q.a1]; .Q.x0 .Q.a2[.Q.a1? first x] . 1_x; .Q.x0 each x]}
@@ -31,6 +33,7 @@
 
 .Q.xy: {`$ string first where x ~/: y}
 
+// .Q.foo is mainly used to index into each date partitions 
 .Q.foo: {[t;c;b;a;v;d]
     if[v;
         g: last ` vs b f:first key b;
