@@ -61,16 +61,21 @@
     if[not .Q.qe[a] & .Q.qe[b] | -1h = type b; '`nyi];
     d: .Q.pv;
     v: $[(q:0> type b); 0; (not count b); 0; (-11h= type v: first value b); .Q.pf ~ first ` vs v;  0];
+    //-- This primarily handles the filtering of (date) partitions in the where clause for .Q.foo to individually index into 
     if[$[(not count c);0; (type first c);0; (-11h= type x: c[0] 1); .Q.pf ~ first ` vs x;  0];
         d@: where eval first c;
         c: 1_ c
     ];
+    //-- For probably efficacy purposes, check if aggregate clauses just contain count[i] or partition, and generate them through this if-condition
+    /- Example includes "select count i by date from t" or "select date by date from t"
     if[$[count c; 0; (g:value[a] ~ enlist[.Q.pf]) | value[a] ~ enlist (count;`i)];
         f: key a;
         j: .Q.dt[d] t;
         if[q; :flip f! enlist $[g; distinct d[where 0< j]; enlist sum j]];
         if[v & 1= count b; :?[flip (.Q.pf, f)! (d;j)[;where 0< j]; (); b; f!enlist (sum;first f)]]
     ];
+    //-- Should there be no (date) partitions remaining post filtering in the if-condition specified
+    /- Automatically assign where clauses to empty and assign the last partition in the d variable for meta preservation purposes
     if[not count d;
         d: .Q.pv[where .Q.pv = last .Q.pv];
         c: enlist ()
