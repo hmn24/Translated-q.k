@@ -9,7 +9,8 @@ ssr_sub_fn: {n: x?"[";
 
 //-- The ssr function in q format
 /- (0, ssr_sub_fn[y, ""]) +/: x ss y    -->    This is meant to create the proper "cutting indices" for the string
-/-  1+ 2* til floor 0.5* count x    -->    This is meant to create indices that goes in odd sequence 
+/-  1+ 2* til floor 0.5* count x    -->    This is meant to create indices that goes in odd sequence
+/- Why odd sequence? Cause the cutting indices are generated at the odd indices of newly cut x under "x: raze[0; (0, ssr_sub_fn[y, ""]) +/: x ss y]_ x"
 /- (count 1, `long$()) 
 /- (count 2, ,1)
 /- (count 3, ,1)
