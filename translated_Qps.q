@@ -1,17 +1,22 @@
 // Translated function from q.k for purposes of reference 
+
+//-- If empty, automatically assign to 1, else only assign to 1 if its of dictionary type
 .Q.qe: {$[count x; 99h = type x; 1]}
 
+//-- To get the cache count populated within .Q.pn (via .Q.cn)
 .Q.dt: {.Q.cn[y] @ where .Q.pv in x}
 
 .Q.qb: {(2>count x) | type[x] & not 11= type x}
 
 .Q.qa: {$[.Q.qb x;0; .Q.IN[first x; .Q.a0];1; (|/) .Q.qa each 1_x]}
 
+//-- Check for statement such as (count distinct@; `column)
 .Q.qd: {$[count ~ first x; distinct ~ first x[1]; 0]}
 
+//-- Check for function in a defined list, generally used to check for functions within .Q.a0
 .Q.IN: {$[99h< type x; x in y; 0]}
 
-// .Q.ua, along with .Q.x0, .Q.x1, .Q.x2, is mainly used for Q to deal with composite functional trees, with aggregation functions split into map-reduce components
+//-- .Q.ua, along with .Q.x0, .Q.x1, .Q.x2, is mainly used for Q to deal with composite functional trees, with aggregation functions split into map-reduce components
 .Q.ua: {((`$string til count u)!u; .Q.x2[; u: distinct raze .Q.x1 each x] each x: .Q.x0 each x)}
 
 .Q.x0: {$[.Q.qb x; x; .Q.IN[first x; .Q.a1]; .Q.x0 .Q.a2[.Q.a1? first x] . 1_x; .Q.x0 each x]}
@@ -33,7 +38,7 @@
 
 .Q.xy: {`$ string first where x ~/: y}
 
-// .Q.foo is mainly used to index into each date partitions 
+//-- .Q.foo is mainly used to index into each date partitions via .Q.p 
 .Q.foo: {[t;c;b;a;v;d]
     if[v;
         g: last ` vs b f:first key b;
@@ -50,6 +55,7 @@
 
 .Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]!` sv .Q.dd[y;z], x]}
 
+//-- Actual map-reduce .Q.ps, which calls the sub-functions defined above
 .Q.ps:{[t;c;b;a]
     if[-11h = type t; t: value t];
     if[not .Q.qe[a] & .Q.qe[b] | -1h = type b; '`nyi];
