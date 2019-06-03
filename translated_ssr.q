@@ -1,4 +1,4 @@
-//-- ssr_sub_fn is to allow ssr to be able to perform [123] either-or replacement
+//-- ssr_sub_fn is to allow ssr to be able to perform "bracketed" regex replacement such as ssr["asdfdasdf"; "d[ab]"; "12"]
 /- If n = count x, it means there's no "[" found, same for count[x] = x?"]" too
 ssr_sub_fn: {n: x?"["; 
             $[n= count x;
