@@ -39,6 +39,7 @@
 .Q.xy: {`$ string first where x ~/: y}
 
 //-- .Q.foo is mainly used to index into each date partitions via .Q.p 
+/- Note that (value flip t) would get the symbol name of the partitioned table of interest
 .Q.foo: {[t;c;b;a;v;d]
     if[v;
         g: last ` vs b f:first key b;
@@ -53,6 +54,9 @@
 
 .Q.p2: {0!(?).@[x;0;.Q.p1[;y;z]]}
 
+/- Note that key[value flip x] is meant to get the columns of interest of the specific date partition
+/- "flip key[flip value x]!` sv .Q.dd[y;z], x]" is actually "flip `sym`time`num!`:./2010.01.01/t"
+/- There is probably an internal hash table for the O(1) lookup
 .Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]!` sv .Q.dd[y;z], x]}
 
 //-- Actual map-reduce .Q.ps, which calls the sub-functions defined above
