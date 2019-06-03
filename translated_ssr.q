@@ -1,10 +1,10 @@
 //-- ssr_sub_fn is to allow ssr to be able to perform [123] either-or replacement
 /- If n = count x, it means there's no "[" found, same for count[x] = x?"]" too
 ssr_sub_fn: {n: x?"["; 
-                $[n= count x;
-                    n; 
-                    n+ .z.s $[count[x] = p: x?"]"; '"unmatched ]"; p]_ x: (n+ 2+ "^"= x[n+1])_ x
-                ]
+            $[n= count x;
+                n; 
+                n+ .z.s $[count[x] = p: x?"]"; '"unmatched ]"; p]_ x: (n+ 2+ "^"= x[n+1])_ x
+            ]
             };
 
 //-- The ssr function in q format
