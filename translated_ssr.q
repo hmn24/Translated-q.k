@@ -3,7 +3,7 @@
 ssr_sub_fn: {n: x?"["; 
                 $[n= count x;
                     n; 
-                    (n+ .z.s $[count[x] = p: x?"]"; '"unmatched ]"; p] _ x: (n+ 2+ "^"= x[n+1])_x
+                    n+ .z.s $[count[x] = p: x?"]"; '"unmatched ]"; p]_ x: (n+ 2+ "^"= x[n+1])_ x
                 ]
             };
 
@@ -17,4 +17,8 @@ ssr_sub_fn: {n: x?"[";
 /- (count 4, 1 3)
 /- (count 5, 1 3)
 /- (count 6, 1 3 5) so on and forth 
+/- ssr is nothing more than a functional apply @[x;y;z]
+/- x: x; 
+/- y: 1+ 2* til floor 0.5* count x: raze[0; (0, ssr_sub_fn[y, ""]) +/: x ss y]_ x; 
+/- z: $[100h> type z; :[;z]; z]
 ssr: {raze @[x; 1+ 2* til floor 0.5* count x: raze[0; (0, ssr_sub_fn[y, ""]) +/: x ss y]_ x; $[100h> type z; :[;z]; z]]}
