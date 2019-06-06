@@ -95,4 +95,4 @@
 /- .Q.pf is `date
 /- .Q.pd is `:/local/1/hdb/1`:/local/2/hdb/2 etc
 /- .Q.pv is 2006.01.02 2006.01.03 etc
-.Q.ind: {raze {.Q.fp[.Q.pf; p; .Q.p1[x; .Q.pd @ y; p: .Q.pv @ y] @ z]}[value flip x]'[i j; (j: where <>':[i])_ y - n i: (n: sums 0,.Q.cn x) bin y]}
+.Q.ind: {raze {.Q.fp[.Q.pf; p; .Q.p1[x; .Q.pd @ y; p: .Q.pv @ y] @ z]}[value flip x]'[i j; (j: where <>':[i])_ y - n @ i: (n: sums 0, .Q.cn x) bin y]}
