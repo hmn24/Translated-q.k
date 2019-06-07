@@ -97,4 +97,4 @@
 /- .Q.pv is 2006.01.02 2006.01.03 etc
 .Q.ind: {raze {.Q.fp[.Q.pf; p; .Q.p1[x; .Q.pd @ y; p: .Q.pv @ y] @ z]}[value flip x]'[i j; (j: where <>':[i])_ y - n @ i: (n: sums 0, .Q.cn x) bin y]}
 
-.Q.p1: {$[count .Q.pm; .Q.pm[x](y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]!.Q.dd[y; z, x]]}
+.Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z,x]]};
