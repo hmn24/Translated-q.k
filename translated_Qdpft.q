@@ -17,6 +17,8 @@
 
 // This would construct the appropriate partitioned directory for the functional amend above in
 / {[d;t;i;u;x] @[d; x; :; u @ t[x] @ i]}
+/ key `:XX.par.txt is to check if the file exists, if it does, it means its a segmented tables and par.txt has to be read to index to correct partition
+/ This is carefully done through mod[p;count h: read0 h] to point to correct file path
 .Q.par: {[d;p;t] ` sv ($[type key h: ` sv d,`par.txt; `$":", h mod[p;count h: read0 h]; d]; `$ string p; t)}
 
 // This is mainly for the enumeration of the .Q.dpft
