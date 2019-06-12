@@ -1,7 +1,7 @@
 // This is the function for the saving of tables
 .Q.dpft: {[d;p;f;t;s]
     i: iasc t f;
-    if[not (&/) .Q.qm each r: flip .Q.enxs[$; d; .[`.; ` vs t]; s];
+    if[not min .Q.qm each r: flip .Q.enxs[$; d; .[`.; ` vs t]; s];
         '`unmappable
     ];
     /- Apply parted attributes on s column (i.e. sym column) on the (::;`p#) f= key r
@@ -13,7 +13,7 @@
  }[;;;;`sym]
 
 // .Q.qm is to make sure types are all uniform, else it would return a 0 and trigger the unmappable conditions above
-.Q.qm: {$[(type[x] | not count x);1; (t: type first x);(&/) t= type each x; 0]}
+.Q.qm: {$[(type[x] | not count x);1; (t: type first x);min t= type each x; 0]}
 
 // This would construct the appropriate partitioned directory for the functional amend above in
 / {[d;t;i;u;x] @[d; x; :; u @ t[x] @ i]}
