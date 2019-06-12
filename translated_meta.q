@@ -3,7 +3,7 @@ meta: {([key c] .Q.ty each t; f: .Q.fk each t; a: attr each t: value c: .Q.V x)}
 .Q.ty: {$[0h > x: .Q.tx x; upper t @ neg x; t x]};
 
 .Q.tx: {$[(76h < t) | not t: type x; 
-                $[0<t:type first x; neg t; 0]; 
+                $[0 < t: type first x; neg t; 0]; /-- This handles the mixed list portion (which will wind up taking the first table row...) 
             20h > t; 
                 t; 
             11h= t: type x: value .Q.nv @ key x;
