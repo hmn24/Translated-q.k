@@ -21,7 +21,7 @@
 
 // This is mainly for the enumeration of the .Q.dpft
 .Q.enxs: {[x;d;t;s]
-    if[count c@: where {$[11h= type first x; (&/) 11h= type each x; 11h= type x]} each t c: key flip t;
+    if[count c@: where {$[11h= type first x; min 11h= type each x; 11h= type x]} each t c: key flip t;
         (` sv d,s) ? distinct raze distinct each {$[0h= type x; raze x; x]} each t c
     ];
     @[t; c; {$[0h= type z; (-1_ sums 0, count each z)_ x[y; raze z]; x[y;z]]}[x;s]]
