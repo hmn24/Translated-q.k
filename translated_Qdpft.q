@@ -12,7 +12,7 @@
     t
  }[;;;;`sym]
 
-// .Q.qm is to make sure types are all uniform, else it would return a 0 and trigger the unmappable conditions above
+// .Q.qm is to make sure types are all uniform, else it would return a 0 and trigger the unmappable error above
 .Q.qm: {$[(type[x] | not count x);1; (t: type first x);min t= type each x; 0]}
 
 // This would construct the appropriate partitioned directory for the functional amend above in
