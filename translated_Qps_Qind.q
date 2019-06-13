@@ -71,7 +71,7 @@
         c: 1_ c
     ];
     //-- For probably efficacy purposes, check if aggregate clauses just contain count[i] or partition, and generate them through this if-condition
-    /- Example includes "select count i by date from t" or "select date by date from t"
+    /- Example includes "select count i by date from t" or "select date by date from t", after where-date clauses have been removed above if it exists
     if[$[count c; 0; (g:value[a] ~ enlist[.Q.pf]) | value[a] ~ enlist (count;`i)];
         f: key a;
         j: .Q.dt[d] t;
