@@ -98,3 +98,7 @@
 .Q.ind: {raze {.Q.fp[.Q.pf; p; .Q.p1[x; .Q.pd @ y; p: .Q.pv @ y] @ z]}[value flip x]'[i j; (j: where <>':[i])_ y - n @ i: (n: sums 0, .Q.cn x) bin y]}
 
 .Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z,x]]};
+
+// .Q.ft is an elegant way of handling the indexing of tables, since it identifies the number of keyed columns, unkey initially for the standard indexing before reapplication of original indexing
+.Q.ft: {$[$[(99h= type t:.Q.v y);98h= type value t;0]; [n:count flip key y; n!x 0!y]; x y]}
+
