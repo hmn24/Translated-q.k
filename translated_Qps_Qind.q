@@ -48,7 +48,7 @@
     raze $[v | not count a; d .Q.fp[$[v; f,g; .Q.pf]]'; ::] .Q.p[(value flip t;c;b;a); d]
     }
 
-.Q.p:{$[not count .Q.D; .Q.p2[x;`:.]'[y]; (raze .Q.p2[x]'/'[.Q.P[i] (;)'[y]]) @ iasc raze y@: i:where 0< count each y:{x @ where x in y}\:[.Q.D;y]]}
+.Q.p:{$[not count .Q.D; .Q.p2[x;`:.]'[y]; (raze .Q.p2[x]'/'[(;)'[.Q.P @ i; y]]) @ iasc raze y@: i:where 0< count each y:{x @ where x in y}\:[.Q.D;y]]}
 
 .Q.fp: {flip (enlist[first x]!enlist count[z]# $[-7h= type y; y; last[x]$y]), flip z}
 
