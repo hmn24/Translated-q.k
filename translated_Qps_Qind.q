@@ -56,7 +56,7 @@
 
 /- Note that key[value flip x] is meant to get the columns of interest of the specific date partition
 /- "flip key[flip value x]!` sv .Q.dd[y;z], x]" is actually "flip `sym`time`num!`:./2010.01.01/t"
-.Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]!` sv .Q.dd[y;z], x]}
+.Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z, x]]};
 
 //-- Actual map-reduce .Q.ps, which calls the sub-functions defined above
 .Q.ps:{[t;c;b;a]
@@ -95,8 +95,6 @@
 /- .Q.pd is `:/local/1/hdb/1`:/local/2/hdb/2 etc
 /- .Q.pv is 2006.01.02 2006.01.03 etc
 .Q.ind: {raze {.Q.fp[.Q.pf; p; .Q.p1[x; .Q.pd @ y; p: .Q.pv @ y] @ z]}[value flip x]'[i j; (j: where <>':[i])_ y - n @ i: (n: sums 0, .Q.cn x) bin y]}
-
-.Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z,x]]};
 
 // .Q.ft is an elegant way of handling the indexing of tables, since it identifies the number of keyed columns, unkey it initially for standard indexing
 / Then reapply the original keyed columns to restore its keyed table format
