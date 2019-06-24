@@ -56,10 +56,12 @@
 
 /- Note that key[value flip x] is meant to get the columns of interest of the specific date partition
 /- "flip key[flip value x]!` sv .Q.dd[y;z], x]" is actually "flip `sym`time`num!`:./2010.01.01/t"
+/ Note that as an example: (x;y;z) = (`t; `:.; 2010.01.01)
 .Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z, x]]};
 
 /- .Q.MAP would generate the mapped partitions on .Q.pm, allowing .Q.p1 to be quickened since it doesnt have to repeatedly access file handles
 /- Would potentially need to modify it to speed up the caching process
+/ - .Q.pm is a dictionary created with (`:.; 2010.01.01) as key and the actual memory-mapped tables as value as an e.g.
 .Q.MAP: {
     {$[0>type a:value flip 0!value x; x set value `$ -1_ string a;]} each a where not (a: system "a") in .Q.pt; 
     .Q.pm::();
