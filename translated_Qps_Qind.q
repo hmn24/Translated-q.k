@@ -58,6 +58,16 @@
 /- "flip key[flip value x]!` sv .Q.dd[y;z], x]" is actually "flip `sym`time`num!`:./2010.01.01/t"
 .Q.p1: {$[count .Q.pm; .Q.pm[x] (y;z); z in .Q.vt[y;x]; .Q.vp x; flip key[flip value x]! .Q.dd[y; z, x]]};
 
+/- .Q.MAP would generate the mapped partitions on .Q.pm, allowing .Q.p1 to be quickened since it doesnt have to repeatedly access file handles
+/- Would potentially need to modify it to speed up the caching process
+.Q.MAP: {
+    {$[0>type a:value flip 0!value x; x set value `$ -1_ string a;]} each a where not (a: system "a") in .Q.pt; 
+    .Q.pm::();
+    if[count .Q.pt; 
+        .Q.pm:: .Q.pt! {(`u# .Q.pd,'.Q.pv)!.Q.p2[(x;();0b;())]'[.Q.pd; .Q.pv]} each .Q.pt
+    ]
+ }
+
 //-- Actual map-reduce .Q.ps, which calls the sub-functions defined above
 .Q.ps:{[t;c;b;a]
     if[-11h = type t; t: value t];
