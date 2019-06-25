@@ -3,8 +3,11 @@
 //-- If empty, automatically assign to 1, else only assign to 1 if its of dictionary type
 .Q.qe: {$[count x; 99h = type x; 1]}
 
-//-- To get the cache count populated within .Q.pn (via .Q.cn)
+//-- To get the cache count populated within .Q.pn (via .Q.cn). This is called by .Q.dt
 .Q.dt: {.Q.cn[y] @ where .Q.pv in x}
+
+//-- .Q.cn would populate the .Q.pn cache for the first time when running it
+.Q.cn:{$[count n: .Q.pn x:value flip x; n; .Q.pn[x]:{count .Q.p1[x;y;z]}'[x;.Q.pd;.Q.pv]]}
 
 .Q.qb: {(2>count x) | type[x] & not 11= type x}
 
