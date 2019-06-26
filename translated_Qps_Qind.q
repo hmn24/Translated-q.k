@@ -7,7 +7,7 @@
 .Q.dt: {.Q.cn[y] @ where .Q.pv in x}
 
 //-- .Q.cn would populate the .Q.pn cache for the first time when running it
-.Q.cn:{$[count n: .Q.pn x:value flip x; n; .Q.pn[x]:{count .Q.p1[x;y;z]}'[x;.Q.pd;.Q.pv]]}
+.Q.cn: {$[count n: .Q.pn x: value flip x; n; .Q.pn[x]: {count .Q.p1[x;y;z]}'[x;.Q.pd;.Q.pv]]}
 
 .Q.qb: {(2>count x) | type[x] & not 11= type x}
 
@@ -52,7 +52,7 @@
     }
 
 //-- Note that ': refers to peach under .Q.p
-.Q.p:{$[not count .Q.D; .Q.p2[x;`:.]':[y]; (raze .Q.p2[x]'/':[(;)'[.Q.P @ i; y]]) @ iasc raze y@: i:where 0< count each y:{x @ where x in y}\:[.Q.D;y]]}
+.Q.p:{$[not count .Q.D; .Q.p2[x;`:.]':[y]; (raze .Q.p2[x]'/':[(;)'[.Q.P @ i; y]]) @ iasc raze y@: i: where 0< count each y: {x @ where x in y}\:[.Q.D;y]]}
 
 .Q.fp: {flip (enlist[first x]!enlist count[z]# $[-7h= type y; y; last[x]$y]), flip z}
 
