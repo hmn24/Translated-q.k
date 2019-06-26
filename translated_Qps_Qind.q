@@ -52,6 +52,10 @@
     }
 
 //-- Note that ': refers to peach under .Q.p
+/- .Q.p2[x]'/': can be viewed with the perspective of (,'/') (`a`b; (`a`b`c;`d`e`f))
+/- The key is that it needed a convenient way of bridging such structures into .Q.p2 (which would need to take in (y;z) argument):
+/- (`:/local/1/100;2006.01.02 2006.01.04)
+/- (`:/local/1/101;(), 2006.01.03)
 .Q.p:{$[not count .Q.D; .Q.p2[x;`:.]':[y]; (raze .Q.p2[x]'/':[(;)'[.Q.P @ i; y]]) @ iasc raze y@: i: where 0< count each y: {x @ where x in y}\:[.Q.D;y]]}
 
 .Q.fp: {flip (enlist[first x]!enlist count[z]# $[-7h= type y; y; last[x]$y]), flip z}
