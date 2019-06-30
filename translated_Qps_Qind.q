@@ -48,7 +48,7 @@
         g: last ` vs b f:first key b;
         b:1_b
     ];
-    raze $[v | not count a; d .Q.fp[$[v; f,g; .Q.pf]]'; ::] .Q.p[(value flip t;c;b;a); d]
+    raze $[v | not count a; .Q.fp[$[v; f,g; .Q.pf]]'[d;]; ::] .Q.p[(value flip t;c;b;a); d]
     }
 
 //-- Note that ': refers to peach under .Q.p
