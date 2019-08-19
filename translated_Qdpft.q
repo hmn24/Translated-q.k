@@ -12,6 +12,11 @@
     t
  }[;;;;`sym]
 
+.Q.hdpf: {[h;d;p;f] 
+    (@[`.;;0#] .Q.dpft[d;p;f]@) each t @ desc (count value @) each t: tables[]; 
+    if[h: @[hopen;h;0]; h system "l ."; hclose h]
+  }
+
 // .Q.qm is to make sure types are all uniform, else it would return a 0 and trigger the unmappable error above
 .Q.qm: {$[(type[x] | not count x);1; (t: type first x);min t= type each x; 0]}
 
