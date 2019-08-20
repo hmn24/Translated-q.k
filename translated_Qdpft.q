@@ -13,7 +13,7 @@
  }[;;;;`sym]
 
 .Q.hdpf: {[h;d;p;f] 
-    (@[`.;;0#] .Q.dpft[d;p;f]@) each t @ desc (count value @) each t: tables[]; 
+    (@[`.;;0#] .Q.dpft[d;p;f]@) each t @ idesc (count value @) each t: tables[]; 
     if[h: @[hopen;h;0]; h system "l ."; hclose h]
   }
 
