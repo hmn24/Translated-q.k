@@ -21,3 +21,6 @@ ssr_sub_fn: {n: x?"[";
 ssr: {x: raze[0; (0, ssr_sub_fn[y, ""]) +/: x ss y]_ x;
     raze @[x; 1+ 2* til floor 0.5* count x; $[100h> type z; :[;z]; z]]
     }
+
+
+.Q.fc: {$[1<n:count[y] & system "s"; raze x peach (n;0N)#y; x y]}
