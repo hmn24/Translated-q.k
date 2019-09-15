@@ -22,5 +22,8 @@ ssr: {x: raze[0; (0, ssr_sub_fn[y, ""]) +/: x ss y]_ x;
     raze @[x; 1+ 2* til floor 0.5* count x; $[100h> type z; :[;z]; z]]
     }
 
-
 .Q.fc: {$[1<n:count[y] & system "s"; raze x peach (n;0N)#y; x y]}
+
+.Q.opt: {[o] x:: $[count i:where o like "-[^0-9]*"; i[0]#o; o]; ((`$ 1_ first@) each o)! 1_' o:i_o}
+
+.Q.def: {x, {$[0h> type x; first; ::] type[first x]$y}'[key[y]#x; y]}
