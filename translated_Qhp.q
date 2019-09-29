@@ -24,6 +24,6 @@
     }
     
 .Q.hap: {
-    list: (0; h; (h:1+ i[1])^ (1+ first where "@"= x) & e; e:count[x]^ e)_ x, (null e: (i: where "/"= x:1_ string x) @ 2)# "/"; 
+    list: (0; h; (h:1+ i[1])^ (1+ first where "@"= x) & e; e:count[x]^ e)_ x, (null e:(i: where "/"= x:1_ string x) 2)# "/"; 
     @[list; 1; -1_]
     }
