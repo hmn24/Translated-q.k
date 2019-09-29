@@ -15,7 +15,7 @@
         (
             s sv 
             ("Connection: close";"Host: ", u 2), 
-            ((0< count a)# enlist $[t; "Proxy-"; ""], "Authorization: Basic ", (neg[c]_ .Q.b6 raze 64 vs' 256 sv' "i"$ 0N 3# a, c#0), (c: .q.mod[neg count a;3])# "="), 
+            ((0< count a)# enlist $[t; "Proxy-"; ""], "Authorization: Basic ", (neg[c]_ .Q.b6 raze 64 vs' 256 sv' "i"$ 0N 3# a, c#0), (c:.q.mod[neg count a;3])# "="), 
             $[count z; ("Content-type: ", z 0;"Content-length: ", string count z 1);()]
         ), 
         (d:s, s:"\r\n"), 
