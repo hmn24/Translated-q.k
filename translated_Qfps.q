@@ -16,4 +16,4 @@
         f[` vs b]
     ]
  }
-.Q.fpn:{.Q.fpn1[y; .Q.fpnFn2[x;;z]]}
+.Q.fpn:{.Q.fpn1[y; .Q.fpn2[x;;z]]}
