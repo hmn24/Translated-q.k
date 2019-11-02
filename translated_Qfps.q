@@ -1,6 +1,6 @@
 // For purposes of opening the named pipe and closing it post-function completion
 .Q.fpn1: {
-    r: .Q.trp[y; h; {hclose x; '(y;z)} h: hopen":fifo://", 1_ string x]; 
+    r: .Q.trp[y; h; {hclose x; '(y;z)} h: hopen ":fifo://", 1_ string x]; 
     hclose h; 
     r
  }
