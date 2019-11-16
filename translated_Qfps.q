@@ -23,3 +23,14 @@
  }
  
 .Q.fpn:{.Q.fpn1[y; .Q.fpn2[x;;z]]}
+
+
+
+.Q.fsn1: {[f;s;x;n] 
+    r: read1 (s;x;n);
+    i: count[r]^ 1+ last where "\n"= r;
+    f[` vs i# r];
+    x + i
+ }
+.Q.fsn: {[f;s;n] .Q.fsn1[f;s;;n]/[hcount[s]>; 0]}
+.Q.fs: .Q.fsn[;;131000]
