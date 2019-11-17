@@ -2,7 +2,7 @@
 // wj[w;c;t;(q;(::;`ask);(::;`bid))]
 ww1: {[applyFn;qTabFiltered;indOne;indTwo] applyFn @' qTabFiltered @\: indOne + key indTwo - indOne}
 ww:{[a;w;f;tTab;z]
-    f,:();
+    f,:(); // usually `sym`time
     e: flip 1_ z; // remove the qTab and flip the (::;`ask);(::;`bid) portion
     qTab: first z; // get the quote table
     fn: $[count g:-1_ f; (f# qTab) bin @[f# tTab;last f;:;]@; qTab[first f] bin]; // Fn to apply on window to use bin to locate position
