@@ -71,7 +71,7 @@
 /- Would potentially need to modify it to speed up the caching process
 / - .Q.pm is a dictionary created with (`:.; 2010.01.01) as key and the actual memory-mapped tables as value as an e.g.
 .Q.MAP: {
-    {$[0>type a:value flip 0!value x; x set value `$ -1_ string a;]} each a where not (a: system "a") in .Q.pt; 
+    {$[0 > type a: value flip 0! value x; x set value `$ -1_ string a;]} each a where not (a: system "a") in .Q.pt; 
     .Q.pm::();
     if[count .Q.pt; 
         .Q.pm:: .Q.pt! {(`u# .Q.pd,'.Q.pv)!.Q.p2[(x;();0b;())]'[.Q.pd; .Q.pv]} each .Q.pt
