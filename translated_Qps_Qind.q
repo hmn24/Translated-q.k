@@ -120,3 +120,18 @@
 / Then reapply the original keyed columns to restore its keyed table format
 .Q.ft: {$[$[(99h= type t:.Q.v y);98h= type value t;0]; [n:count flip key y; n!x 0!y]; x y]}
 
+.Q.bv:{
+    g: $[(::) ~ x; max; min];
+    x: `:.;
+    P: $[`par.txt in key x; hsym `$ read0 .Q.dd[x;`par.txt]; enlist x];
+    d: {.Q.dd'[x; d where (d: key x) like "[0-9]*"]} each P;
+    getPartDate:: {("DMJJ" @ `date`month`year`int?.Q.pf) $ string last x: ` vs x};
+    .Q.vt: ({where[count each x] @ group raze value x} {(getPartDate each x)! key each x} ::) each d;
+    t: distinct raze key each .Q.vt;
+    .Q.vt: t #/: .Q.vt;
+    res: {i: y @ where x= y @ x:@[x; where x ~\: (); :; first 0# `. .Q.pf]; (i; x i)}[;g] each flip t #/: g''[.Q.vt];
+    d: ` sv' (,'/) (P value[res][;0]; `$ string value[res][;1]; key res);
+    .Q.vt: P! except[value .Q.pf]''[.Q.vt];
+    .Q.vp: t! {flip[enlist[.Q.pf]!enlist 0# value .Q.pf] ,' flip (attr each value flip x) #' flip reverse 0# x:?[x;();0b;()]} each d;
+    .Q.pt,: {x set flip (key[flip .Q.vp x] except .Q.pf)!x} each t except .Q.pt;
+ };
