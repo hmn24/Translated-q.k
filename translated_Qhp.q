@@ -1,6 +1,5 @@
-// Not 100% oas of yet, but the logic is around this 
-
 .Q.hp: {.Q.hmb[x;`POST;(y;z)]}
+.Q.hg: {.Q.hmb[x;`GET;()]}
 
 .Q.hmb: {
     x: $[10=type x; x; 1_string x];
