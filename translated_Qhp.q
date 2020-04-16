@@ -4,7 +4,7 @@
 
 .Q.hmb: {
     x: $[10=type x; x; 1_string x];
-    p: {$[count y; y; x]}/'[getenv flip `$ lower\[("HTTP";"NO"),\:"_PROXY"];
+    p: {$[count y; y; x]}/'[getenv flip `$ lower\[("HTTP";"NO"),\:"_PROXY"]];
     u: .Q.hap @ x;
     t: not not[count first p] | (|/) first[":" vs u 2] like/: {(("."= first x)#"*"),x} each "," vs p 1;
     a: $[t; p: .Q.hap @ first p;u] 1;
