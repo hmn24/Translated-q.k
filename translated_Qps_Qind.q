@@ -125,7 +125,7 @@
     x: `:.;
     P: $[`par.txt in key x; hsym `$ read0 .Q.dd[x;`par.txt]; enlist x];
     d: {.Q.dd'[x; d where (d: key x) like "[0-9]*"]} each P;
-    getPartDate:: {("DMJJ" @ `date`month`year`int?.Q.pf) $ string last x: ` vs x};
+    `getPartDate set {("DMJJ" @ `date`month`year`int?.Q.pf) $ string last x: ` vs x};
     .Q.vt: ({where[count each x] @ group raze value x} {(getPartDate each x)! key each x} ::) each d;
     t: distinct raze key each .Q.vt;
     .Q.vt: t #/: .Q.vt;
