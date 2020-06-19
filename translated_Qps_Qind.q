@@ -78,6 +78,8 @@
     ]
  }
 
+fby: {$[count[x 1] = count y; @[count[y]# x[0] 0# x 1; g; :; x[0] each x[1] g:value group y];'length]}
+
 //-- Actual map-reduce .Q.ps, which calls the sub-functions defined above
 .Q.ps:{[t;c;b;a]
     if[-11h = type t; t: value t];
