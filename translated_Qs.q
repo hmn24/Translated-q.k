@@ -19,7 +19,7 @@
 
 // Use HTTP size from \C
 .Q.sw: {
-    floor[.5* first reverse system "C"] sublist x
+    floor[.5* last system "C"] sublist x
  };
 
 .Q.s2: {
