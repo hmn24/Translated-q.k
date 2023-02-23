@@ -39,6 +39,26 @@ wj1: {[w;f;y;z] ww[1;w - 1 0;f;y;z]}    // Minus 1 0 since bin always take indic
     $[(&/) key[flip y] in f:key flip x; x; x ,' (f_y) count[x]#0N]
  };
 
+/ kdb 3.6 onwards change
+.Q.ajf0: {[f;g;x;y;z]
+  x,:();
+  z:0!z;
+  d:$[g;x_z;z];
+  / f will determine what g/f function to use
+  g:(:;^)f;
+  f:(,;^)f;
+  i:(x#z) bin x#y;
+  j:-1 < i;
+  $[(&/)j;
+   f'[y;d i];
+   flip .[flip .Q.ff[y;d]; (key flip d;j); g; value flip d i j:where j]
+  ]
+ };
+
+aj:{.Q.ft[.Q.ajf0[0;1;x;;z]; y]};
+aj0:{.Q.ft[.Q.ajf0[0;0;x;;z]; y]};
+
+/ Older than kdb 3.6
 ajf: {[isaj;x;y;z]
     d: $[isaj;x_;] z;
     i: (x#z) bin x#y;
