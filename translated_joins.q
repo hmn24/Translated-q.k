@@ -4,7 +4,7 @@
 // b: 2nd Index
 // e: (max;min)                         -> Given example above
 // d: quote (filtered to f)
-ww1: {[e;d;a;b] e @' d @\: a + til b - a};
+ww1: {[e;d;a;b] e .' d @\:\: a + til b - a};
 
 // Following example above:
 // a: (0 1) or 1
@@ -16,13 +16,15 @@ ww1: {[e;d;a;b] e @' d @\: a + til b - a};
 // e: flip ((max;`ask);(min;`bid))      -> Given example above
 ww: {[a;w;f;y;z]
     f,:();
-    e: flip 1_z;
+    e: 1_z;
     z: first z;
-    g: -1_f;
-    fn: $[count g; (f#z) bin @[f#y;last f;:;] @; z[first f] bin];
+    fn: $[count g:-1_f; (f#z) bin @[f#y;last f;:;] @; z[first f] bin];
     idx: $[count g; (g#z)?g#y; 0] |/: a + fn each w;                // Indices of z falling within y
-    y ,' flip f! flip  ww1[first e; z f: last e] .' flip idx        // (/' equiv to .')
+    f: 1_'e;
+    n: count first w;
+    y ,' n # flip (last each f) ! flip ww1[first each e;z f] .' $[n;flip idx;enlist 0 0]    // (/' equiv to .')
  };
+
 
 wj: {[w;f;y;z] ww[0 1;w;f;y;z]};        // Add 0 1 -> 1 is for the ww1 til function 
 wj1: {[w;f;y;z] ww[1;w - 1 0;f;y;z]}    // Minus 1 0 since bin always take indices from left hand side
@@ -97,20 +99,21 @@ uj: {
     ]
  };
 
-ljf: {
-    $[`s = attr y;
-        aj[key flip key y; x; 0!y];
-        [
-        ljfn: {
-            $[(&/) j: count[y: value y] > i?: key[flip i:key y]#x;
-                .Q.fl[x; y i];
+
+ljf1:{
+    $[`s=attr y;
+        ajf[key flip key y;x;0!y];
+        .Q.ft[{
+            i:i?(key flip i:key y)#x;
+            $[(&/) j:(count y:value y)>i;
+                .Q.fl[x]y i;
                 [
-                op: .Q.fl[#[f:key flip y; x:.Q.ff[x;y]] @ j; y i j: where j];
-                flip .[flip x; (f;j); :; value flip op]
+                f:key flip y;
+                x:.Q.ff[x] y;
+                j:where j;
+                flip .[flip x;(f;j);:;value flip .Q.fl[(f#x)j]y i j]
                 ]
             ]
-        }; 
-        .Q.ft[ljfn[;y]; x]
-        ];
+        }[;y]]x
     ]
- };
+}
